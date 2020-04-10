@@ -48,6 +48,7 @@ class ViewLogoScreen extends Component {
                                         View Logo
                                     </h3>
                                 </div>
+                                <div className="row">
                                 <div className="panel-body">
                                     <dl>
                                         <dt>Text:</dt>
@@ -87,6 +88,25 @@ class ViewLogoScreen extends Component {
                                             </div>
                                         )}
                                     </Mutation>
+                                </div>
+
+                                <div className="col s8" style = {{overflow: "auto"}}>
+                                            <div className="logoview"
+                                            style={{
+                                                color: data.logo.color,
+                                                fontSize: data.logo.fontSize + "pt",
+                                                backgroundColor: data.logo.backgroundColor,
+                                                border: "solid",
+                                                borderColor: data.logo.borderColor,
+                                                borderRadius: data.logo.borderRadius + "pt",
+                                                borderWidth: data.logo.borderWidth + "pt",
+                                                padding: data.logo.padding + "pt",
+                                                margin: data.logo.margin + "pt"
+                                        } }>
+                                            {data.logo.text}
+                                            </div>
+                                        </div>
+
                                 </div>
                             </div>
                         </div>

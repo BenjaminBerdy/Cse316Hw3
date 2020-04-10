@@ -22,7 +22,6 @@ class HomeScreen extends Component {
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
-
                     return (
                         <div className="container row">
                             <div className="col s4">
@@ -36,11 +35,12 @@ class HomeScreen extends Component {
                             </div>
                             <div className="col s8">
                                 <div id="home_banner_container">
-                                    @todo<br />
-                                    List Maker
+                                    GoLogoLo<br />
                                 </div>
                                 <div>
-                                    <Link id="add_logo_button" to="/create">Add Logo</Link>
+                                    <form action="/create">
+                                        <button>Add Logo</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
