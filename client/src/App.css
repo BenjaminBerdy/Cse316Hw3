@@ -31,3 +31,21 @@ body {
   padding-top: 5%;
   padding-bottom: 5%;
 }
+
+#new_work_button {
+  font-size: 32pt;
+}
+#new_work_button:hover {
+  box-shadow: 1px 2px;
+  cursor: pointer;
+}
+
+#recent_work_heading {
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+#link{
+  color: black;
+  font-size: 24pt
+}

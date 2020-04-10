@@ -16,6 +16,19 @@ const GET_LOGOS = gql`
 
 class HomeScreen extends Component {
 
+    sortRecentWorks(logos){
+        for (let i = 0; i < logos.length-1; i++){ 
+        for (let j = 0; j < logos.length-i-1; j++){ 
+            if (logos[j].lastUpdate < logos[j+1].lastUpdate) 
+            { 
+                let temp = logos[j]; 
+                logos[j] = logos[j+1]; 
+                logos[j+1] = temp; 
+            } 
+        }
+        }
+    }
+
     render() {
         return (
             <Query pollInterval={500} query={GET_LOGOS}>
@@ -25,11 +38,11 @@ class HomeScreen extends Component {
                     return (
                         <div className="container row">
                             <div className="col s4">
-                                <h3>Recent Work</h3>
-                                {data.logos.map((logo, index) => (
+                                <h3 id = "recent_work_heading">Recent Logos</h3>
+                                {this.sortRecentWorks(data.logos), data.logos.map((logo, index) => (
                                     <div key={index} className='home_logo_link'
                                         style={{ cursor: "pointer" }}>
-                                        <Link to={`/view/${logo._id}`}>{logo.text}</Link>
+                                        <Link id="link" to={`/view/${logo._id}`}>{logo.text}</Link>
                                     </div>
                                 ))}
                             </div>
@@ -39,7 +52,7 @@ class HomeScreen extends Component {
                                 </div>
                                 <div>
                                     <form action="/create">
-                                        <button>Add Logo</button>
+                                        <button id = "new_work_button">Create New Logo</button>
                                     </form>
                                 </div>
                             </div>
